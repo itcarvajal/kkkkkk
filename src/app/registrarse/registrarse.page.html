@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="ion-padding">
+    <form #formulario="ngForm" (ngSubmit)="registrarUsuario()">
+      <ion-list>
+        <ion-item>
+          <ion-input name="emailForm" [(ngModel)]="emailForm" placeholder="Correo" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input name="passwordForm" type="password" [(ngModel)]="passwordForm" placeholder="Contraseña" required minlength="6"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input name="nombreUsuarioForm" [(ngModel)]="nombreUsuarioForm" placeholder="Nombre de usuario" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input name="edadForm" [(ngModel)]="edadForm" type="number" placeholder="Edad" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input name="telefonoForm" [(ngModel)]="telefonoForm" type="tel" placeholder="Teléfono" required></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-button expand="full" color="secondary" [routerLink]="['/login']">Atrás</ion-button>
+      <ion-button expand="full" type="submit" [attr.disabled]="formulario.invalid">Registrar Usuario</ion-button>
+    </form>
+  </ion-card>
+</ion-content>
